@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import UserContext from '../utils/Context';
 
 const Navbar = () => {
   const [loginVaue,setLoginValue] = useState('login')
   const onlineStatus = useOnlineStatus();
-
+const data = useContext(UserContext)
+  const {loggedInUser} = data;
 
 function loginHandler(){
   loginVaue==='login'?setLoginValue('logout'):setLoginValue('login');
@@ -27,6 +29,7 @@ function loginHandler(){
             <NavLink className="px-4" to="/contact">Contact</NavLink >
             <NavLink className="px-4" to='/services' >Services</NavLink>
             <li onClick={loginHandler}>{loginVaue}</li>
+            <li className='ml-[8px] font-bold '>{loggedInUser}</li>
         </ul>
       </div>
     </div>

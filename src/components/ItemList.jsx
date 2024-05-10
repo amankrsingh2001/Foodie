@@ -11,8 +11,8 @@ const ItemList = ({ items }) => {
         <div>
             {
                 items.map((item,index) => { return  <div key={index}>
-                    <div>
-                        <span>{item?.card?.info?.name  }</span>
+                    <div className="border-b border-sky-700">
+                        <span >{item?.card?.info?.name  }</span>
                         <p>{item?.card?.info?.description }</p>
                     </div>
                 </div>})

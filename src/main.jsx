@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
@@ -10,7 +10,6 @@ import Services from './components/Services';
 import ResturantMenu from './components/RestaurantMenu.jsx'
 
 const About = lazy(()=>(import( './components/About.jsx')))
-
 const router = createBrowserRouter([
     {
         path: "/",
@@ -42,6 +41,7 @@ const router = createBrowserRouter([
     }
 
 ])
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
  

@@ -3,6 +3,8 @@ import Card from './Card';
 import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import { useContext } from 'react';
+import UserContext from '../utils/Context';
 
 
 
@@ -11,6 +13,7 @@ const Body = ()=>{
   const [inputText,setInputText] = useState('')
   const [cardDispaly ,setCardDisplay] = useState([])
   const [res, setRes] = useState([])
+  const {loggedInUser,setUsername} = useContext(UserContext);
 
 
  async function getResInfo (){
@@ -19,8 +22,6 @@ const Body = ()=>{
   setCardDisplay(response?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 }
 
-
-console.log(cardDispaly);
 useEffect( ()=>{
  getResInfo()
 },[])
@@ -50,6 +51,8 @@ if(onlineStatus===false){
  }} 
  className="px-4 m-4 py-0.5 bg-green-300 text-slate-900 rounded-lg" >Search</button>
  <button className="bg-slate-600 m-4 px-4 py-0.5 text-white rounded-md" onClick={bestHandler}>Best Pick</button>
+ <label className='mr-2'>Username</label>
+ <input className='border border-black p-2 outline-none' value={loggedInUser} onChange={(e)=>(setUsername(e.target.value))}/>
   </div>
   <div className='flex flex-wrap m-4 p-4'>
   {

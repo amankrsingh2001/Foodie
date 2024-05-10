@@ -1,9 +1,8 @@
 
-import { CARD_IMG_URL } from '../utils/Constant'
-
-
 
 const Card = (data) =>{
+
+  
 
     return (
        <div className='h-[450px] overflow-auto w-60 m-10 p-10 border border-slate-400 bg-[#FFF1D7] rounded-[20px] '>
