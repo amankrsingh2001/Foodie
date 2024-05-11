@@ -8,6 +8,7 @@ import Body from './components/Body.jsx'
 import Contact from './components/Contact.jsx'
 import Services from './components/Services';
 import ResturantMenu from './components/RestaurantMenu.jsx'
+import Cart from './components/Cart.jsx'
 
 const About = lazy(()=>(import( './components/About.jsx')))
 const router = createBrowserRouter([
@@ -36,6 +37,9 @@ const router = createBrowserRouter([
             },{
                 path:'/resturant/:resId',
                 element:<ResturantMenu/>
+            },{
+                path:'/cart',
+                element:<Cart/>
             }
         ]
     }
